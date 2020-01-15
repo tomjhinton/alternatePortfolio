@@ -1,0 +1,8 @@
+{
+  "name": "alternatePortfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tomjhinton/alternatePortfolio.git",
+  "author": "Tom Hinton <tomjhinton@gmail.com>",
+  "license": "MIT"
+}
