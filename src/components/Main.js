@@ -69,16 +69,16 @@ class Main extends React.Component{
     }
 
     const  mouse2 = {
-      x: 200,
-      y: 200,
-      vx: 0.3,
-      vy: 0.3
+      x: 400,
+      y: 400,
+      vx: 0.6,
+      vy: 0.6
     }
 
 
     let points =  []
     points = []
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 200; i++) {
       points.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -119,22 +119,22 @@ class Main extends React.Component{
 
           for (var j = 0, y = points.length; j < y; j++) {
             var pointB = points[j]
-            if(distance(pointA, pointB) < 155) {
+            if(distance(pointA, pointB) < 255) {
 
               ctx.lineTo(pointB.x,pointB.y)
             }
           }
         }
 
-        if(distance(mouse2, pointA) < 150){
+        if(distance(mouse2, pointA) < 250){
 
           ctx.lineTo(mouse2.x, mouse2.y)
 
 
 
-          for (var j = 0, y = points.length; j < y; j++) {
-            var pointC = points[j]
-            if(distance(pointA, pointC) < 155) {
+          for (var k = 0, v = points.length; k < v; k++) {
+            var pointC = points[k]
+            if(distance(pointA, pointC) < 255) {
 
               ctx.lineTo(pointC.x,pointC.y)
 
@@ -142,7 +142,7 @@ class Main extends React.Component{
           }
         }
       }
-      ctx.lineWidth = 0.15
+      ctx.lineWidth = 0.55
       ctx.strokeStyle = 'rgba(74,246,38,0.9)'
       ctx.stroke()
     }
@@ -204,12 +204,12 @@ class Main extends React.Component{
 
     return (
       <div className='main'>
-        <canvas id="points" width={900} height={480}>  </canvas>
+        <canvas id="points" width={900} height={1960}>  </canvas>
 
 
 
 
-        <div className='block'>
+        <div className='block1'>
           <p className='name'>About Me</p>
           <div className='box'>
 
@@ -218,7 +218,20 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block'>
+        <div className='block2'>
+          <p className='name'>Contact</p>
+          <div className='cube'>
+
+            Web Developer
+          </div>
+
+        </div>
+
+
+        <hr className='hr'/>
+
+
+        <div className='block3'>
           <p className='name'>Cat Detector</p>
           <div className='box'>
 
@@ -230,7 +243,7 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block'>
+        <div className='block4'>
           <p className='name'>cyberBlobOfTheRings</p>
           <div className='box'>
             <img src="assets/cyberblob.png" />
@@ -239,7 +252,7 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block'>
+        <div className='block5'>
           <p className='name'>Freeside</p>
           <div className='box'>
             <img src="assets/freeside.png" />
@@ -248,7 +261,7 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block'>
+        <div className='block6'>
           <p className='name'>pastelDOA</p>
           <div className='box'>
             <img src="assets/pastel.png" />
@@ -257,7 +270,7 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block'>
+        <div className='block7'>
           <p className='name'>speakAndSpells</p>
           <div className='box'>
             <img src="assets/speak.png" />
@@ -265,7 +278,7 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block'>
+        <div className='block8'>
           <p className='name'>aleph</p>
           <div className='box'>
             <img src="assets/aleph.png" />
@@ -273,7 +286,7 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block'>
+        <div className='block9'>
           <p className='name'>Increnfinity</p>
           <div className='box'>
             <img src="assets/Increnfinity.png" />
@@ -281,7 +294,7 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block'>
+        <div className='block10'>
           <p className='name'>EBM</p>
           <div className='box'>
             <img src="assets/ebm.png" />
@@ -289,7 +302,7 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block'>
+        <div className='block11'>
           <p className='name'>Bounce</p>
           <div className='box'>
             <img src="assets/bounce.png" />
