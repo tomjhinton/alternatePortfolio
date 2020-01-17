@@ -8,6 +8,7 @@
 @mixin box {
 
   transition: all 2000ms ease;
+  min-height: 45vh;
   font-family: 'Passio';
   color:white;
   background-color: white;
@@ -16,8 +17,6 @@
   align-items: center;
   align-content: center;
   width: 40vw;
-  height: 45vh;
-  align-items: center;
   justify-content: center;
   filter: brightness(0%);
 
@@ -107,27 +106,30 @@ $base-color: #036;
   color: black;
 }
 
-.cube{
-   transition: all 1000ms ease-out;
+.triangle{
+  min-height: 45vh;
+  margin-top: 10px;
+  transition: all 2000ms ease;
   font-family: 'Passio';
   color:white;
   background-color: white;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
   width: 40vw;
-  height: 45vh;
-  clip-path: polygon(0 30%,
-      30% 0,
-      50% 0,
-      50% 30%,
-      30% 50%,
-      0 50%);
-      filter: brightness(0%);
-    img{
-      opacity: 0;
-      height: 10px;
-    }
+  justify-content: center;
+  clip-path: polygon(0 0,
+   50% 0,
+   10% 0,
+   50% 0%,
+   10% 0%,
+   0 10%);
+
+  filter: brightness(0%);
+
 }
 
-.cube:hover{
+.triangle:hover{
   font-family: 'Passio';
   color:black;
   background-color: white;
@@ -136,13 +138,9 @@ $base-color: #036;
    100% 0,
    100% 50%,
    100% 100%,
-   0 100%);
-   img{
-     opacity: 1;
-     display: inline-flex;
-     height: 25vh;
-   }
-   filter: brightness(100%);
+   0 200%);
+
+  filter: brightness(100%);
 }
 
 

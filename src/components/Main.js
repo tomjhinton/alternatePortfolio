@@ -220,7 +220,7 @@ class Main extends React.Component{
 
         <div className='block2'>
           <p className='name'>Contact</p>
-          <div className='cube'>
+          <div className='triangle'>
 
             Web Developer
           </div>
@@ -245,7 +245,7 @@ class Main extends React.Component{
 
         <div className='block4'>
           <p className='name'>cyberBlobOfTheRings</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/cyberblob.png" />
             <p className="desc">How often have you felt like your life lacks real time webcam based Cat detection? Problem solved.  Uses the tensorflow image detection and classification model coco-ssd and a users webcam to detect the presence of cats. </p>
           </div>
@@ -263,7 +263,7 @@ class Main extends React.Component{
 
         <div className='block6'>
           <p className='name'>pastelDOA</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/pastel.png" />
             hiya
           </div>
@@ -280,7 +280,7 @@ class Main extends React.Component{
 
         <div className='block8'>
           <p className='name'>aleph</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/aleph.png" />
             hiya
           </div>
@@ -296,7 +296,7 @@ class Main extends React.Component{
 
         <div className='block10'>
           <p className='name'>EBM</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/ebm.png" />
             hiya
           </div>
