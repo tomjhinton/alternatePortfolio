@@ -205,7 +205,8 @@ class Main extends React.Component{
     return (
       <div className='main'>
         <canvas id="points" width={900} height={1960}>  </canvas>
-
+        <div className='head'>
+        </div>
 
 
 

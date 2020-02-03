@@ -30,6 +30,14 @@ module.exports = {
           name: '[name].[ext]',
           outputPath: 'fonts/'
         }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       }
     ]
   },
@@ -50,7 +58,7 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({ 'window.decomp': 'poly-decomp' }),
     new CopyWebpackPlugin([
-      { from: 'src/models', to: 'models' }
+      { from: 'src/assets', to: 'assets' }
     ])
   ]
 }
