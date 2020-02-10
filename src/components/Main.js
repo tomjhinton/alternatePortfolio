@@ -3,9 +3,17 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 let text = 'The sky above the port was the colour of a television tuned to a dead channel.'
+import 'react-devicon'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheckSquare, faCoffee, faAt, faLink } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(fab, faCheckSquare, faCoffee, faAt, faLink)
 
 import * as THREE from 'three'
 import { EffectComposer, RenderPass ,Effect, EffectPass} from 'postprocessing'
+import IconGithub from 'react-devicon/github/original'
 
 
 const fragment = `
@@ -437,7 +445,7 @@ class Main extends React.Component{
     return (
       <div className='main'>
         <canvas id="points" width={900} height={1960}>  </canvas>
-        
+
 
 
 
@@ -454,13 +462,36 @@ class Main extends React.Component{
           <p className='name'>Contact</p>
           <div className='triangle'>
 
-            Web Developer
+          <a href="https://www.linkedin.com/in/tom-hinton/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} /> tom-hinton </a>
+          <br/>
+
+          <a href="https://twitter.com/tomjhinton" target="_blank"><FontAwesomeIcon icon={['fab', 'twitter']} />  tomjhinton </a>
+          <br/>
+
+          <a href="https://github.com/tomjhinton" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} />  tomjhinton </a>
+          <br/>
+
+
+          <a href="https://www.instagram.com/svg.png/ " target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} />  SVG.PNG</a>
+          <br/>
+
+          <a href="https://www.instagram.com/above_the_port/ " target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} />  above_the_port</a>
+          <br/>
+
+
+
+          <a href="mailto:tomjhinton@gmail.com"> <FontAwesomeIcon icon="at"/> </a> tomjhinton@gmail.com
           </div>
 
         </div>
 
+        <div className='nav'>
+        ML Controlled Games Full Stack Sites Other
+        </div>
 
-        <hr className='hr'/>
+        <div>
+          <h2 className='section'>ML Controlled</h2>
+        </div>
 
 
         <div className='block3'>
@@ -471,8 +502,68 @@ class Main extends React.Component{
 
 
             <p className="desc">How often have you felt like your life lacks real time webcam based Cat detection? Problem solved.  Uses the tensorflow image detection and classification model coco-ssd and a users webcam to detect the presence of cats. </p>
+            <a href="https://github.com/tomjhinton/catDetector" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/catDetector/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
 
+        </div>
+
+
+
+        <div className='block7'>
+          <p className='name'>speakAndSpells</p>
+          <div className='box'>
+            <img src="assets/speak.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block8'>
+          <p className='name'>aleph</p>
+          <div className='triangle'>
+            <img src="assets/aleph.png" />
+            hiya
+          </div>
+        </div>
+
+
+
+        <div className='block10'>
+          <p className='name'>EBM</p>
+          <div className='triangle'>
+            <img src="assets/ebm.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block10'>
+          <p className='name'>emokinesis</p>
+          <div className='triangle'>
+            <img src="assets/emo.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block10'>
+          <p className='name'>nice</p>
+          <div className='triangle'>
+            <img src="assets/nice.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block10'>
+          <p className='name'>MagToei</p>
+          <div className='triangle'>
+            <img src="assets/mag.png" />
+            hiya
+          </div>
+        </div>
+
+
+
+        <div>
+          <h2 className='section'>Games</h2>
         </div>
 
         <div className='block4'>
@@ -502,18 +593,10 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block7'>
-          <p className='name'>speakAndSpells</p>
+        <div className='block11'>
+          <p className='name'>Bounce</p>
           <div className='box'>
-            <img src="assets/speak.png" />
-            hiya
-          </div>
-        </div>
-
-        <div className='block8'>
-          <p className='name'>aleph</p>
-          <div className='triangle'>
-            <img src="assets/aleph.png" />
+            <img src="assets/bounce.png" />
             hiya
           </div>
         </div>
@@ -526,21 +609,68 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block10'>
-          <p className='name'>EBM</p>
-          <div className='triangle'>
-            <img src="assets/ebm.png" />
+        <div className='block9'>
+          <p className='name'>Tetris</p>
+          <div className='box'>
+            <img src="assets/tetris.png" />
             hiya
           </div>
         </div>
 
-        <div className='block11'>
-          <p className='name'>Bounce</p>
+        <div>
+          <h2 className='section'>Full Stack Sites</h2>
+        </div>
+
+        <div className='block9'>
+          <p className='name'>Neurot467</p>
           <div className='box'>
-            <img src="assets/bounce.png" />
+            <img src="assets/neurot.png" />
             hiya
           </div>
         </div>
+
+        <div className='block9'>
+          <p className='name'>EventUp</p>
+          <div className='box'>
+            <img src="assets/EventUp.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block9'>
+          <p className='name'>Epiphyte</p>
+          <div className='box'>
+            <img src="assets/epiphyte.png" />
+            hiya
+          </div>
+        </div>
+
+        <h2 className='section'>Other</h2>
+
+        <div className='block9'>
+          <p className='name'>Twitter Bots</p>
+          <div className='box'>
+            <img src="assets/tetris.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block9'>
+          <p className='name'>movieBase</p>
+          <div className='box'>
+            <img src="assets/movieBase.png" />
+            hiya
+          </div>
+        </div>
+
+        <div className='block9'>
+          <p className='name'>Interactive Canvas Headers</p>
+          <div className='box'>
+            <img src="assets/canvas.png" />
+            hiya
+          </div>
+        </div>
+
       </div>
 
 

@@ -145,7 +145,17 @@ $base-color: #036;
 }
 
 
-
+.section{
+  font-family: 'Passio';
+  font-weight:bold;
+  color: black;
+  font-size: 3em;
+text-decoration: underline;
+  margin-bottom: 2px;
+  z-index: 3;
+  margin-left: 45vw;
+  margin-right: 40vw;
+}
 
 
 .hr{
