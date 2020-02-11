@@ -446,7 +446,7 @@ class Main extends React.Component{
 
     return (
 
-      <div className='main'>
+      <div className='main '>
 
 
         <canvas id="points" width={900} height={1960}>  </canvas>
@@ -552,7 +552,11 @@ class Main extends React.Component{
           <p className='name'>EBM</p>
           <div className='triangle'>
             <img src="assets/ebm.png" />
-            hiya
+            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+            <div className='links'>
+              <a href="https://github.com/tomjhinton/ebm" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
+              <a href="https://tomjhinton.github.io/ebm/" target="_blank"><FontAwesomeIcon icon="link"/></a>
+              </div>
           </div>
         </div>
 
@@ -560,7 +564,11 @@ class Main extends React.Component{
           <p className='name'>emokinesis</p>
           <div className='triangle'>
             <img src="assets/emo.png" />
-            hiya
+            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+            <div className='links'>
+              <a href="https://github.com/tomjhinton/emokinesis" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
+              <a href="https://tomjhinton.github.io/emokinesis/" target="_blank"><FontAwesomeIcon icon="link"/></a>
+              </div>
           </div>
         </div>
 
@@ -568,7 +576,11 @@ class Main extends React.Component{
           <p className='name'>niceGuys</p>
           <div className='triangle'>
             <img src="assets/nice.png" />
-            hiya
+            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+            <div className='links'>
+              <a href="https://github.com/tomjhinton/niceGuys" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
+              <a href="https://tomjhinton.github.io/niceGuys/" target="_blank"><FontAwesomeIcon icon="link"/></a>
+              </div>
           </div>
         </div>
 
@@ -657,7 +669,13 @@ class Main extends React.Component{
           <p className='name'>Tetris</p>
           <div className='box'>
             <img src="assets/tetris.png" />
-            hiya
+            <p className="desc"> A solo project built over a one week timeframe, the brief for this project was to build a game from a set-list utilising HTML, CSS and JavaScript.</p>
+
+                  <div className="links">
+                    <a href="https://github.com/tomjhinton/SEI-Project01" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+
+                    <a href="https://tomjhinton.github.io/SEI-Project01/" target="_blank"><FontAwesomeIcon icon="link"/></a>
+                  </div>
           </div>
         </div>
 
@@ -669,7 +687,13 @@ class Main extends React.Component{
           <p className='name'>Neurot467</p>
           <div className='box'>
             <img src="assets/neurot.png" />
-            hiya
+            <p className="desc">EventUp was a site that allowed promoters to upload details about their upcoming events. It also used Songkick’s API to provide information about events that had not been added by our users about the venues that the events would be held at. With this information we were able to use Mapbox to provide a map showing the location of the event on its page. I worked mainly on the form to allow people to add events to our database and on integrating the map.
+                </p>
+                <div className='links'>
+                <a href="https://github.com/tomjhinton/fold" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
+
+                <a href="https://neurot467.herokuapp.com" target="_blank"><FontAwesomeIcon icon="link"/></a>
+                </div>
           </div>
         </div>
 
