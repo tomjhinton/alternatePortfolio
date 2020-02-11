@@ -1,4 +1,6 @@
 //pic size 687*687
+import StickyFooter from 'react-sticky-footer';
+
 import React from 'react'
 import {Link} from 'react-router-dom'
 
@@ -443,54 +445,60 @@ class Main extends React.Component{
     console.log(this.state)
 
     return (
+
       <div className='main'>
+
+
         <canvas id="points" width={900} height={1960}>  </canvas>
 
 
-
+        <div className='nav navbar is-fixed-bottom'>
+        <a href='#about'>About Me</a> <a href='#contact'>Contact</a>
+        <a href='#ml'>ML Controlled</a>  <a href='#games'>Games</a> <a  href='#fullS'>Full Stack Sites</a> <a href='#other'>Other</a>
+        </div>
 
         <div className='block1'>
-          <p className='name'>About Me</p>
+          <p className='name'  id='about'>About Me</p>
           <div className='box'>
 
-            Web Developer
+            Creative Coder and full-stack developer.
           </div>
 
         </div>
 
         <div className='block2'>
-          <p className='name'>Contact</p>
+          <p className='name' id='contact'>Contact</p>
           <div className='triangle'>
+            <p>
+            Available for work, chats, collaborations etc, across the usual sites...
+            </p>
+            <a href="https://www.linkedin.com/in/tom-hinton/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} /> tom-hinton </a>
+            <br/>
 
-          <a href="https://www.linkedin.com/in/tom-hinton/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} /> tom-hinton </a>
-          <br/>
+            <a href="https://twitter.com/tomjhinton" target="_blank"><FontAwesomeIcon icon={['fab', 'twitter']} />  tomjhinton </a>
+            <br/>
 
-          <a href="https://twitter.com/tomjhinton" target="_blank"><FontAwesomeIcon icon={['fab', 'twitter']} />  tomjhinton </a>
-          <br/>
-
-          <a href="https://github.com/tomjhinton" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} />  tomjhinton </a>
-          <br/>
-
-
-          <a href="https://www.instagram.com/svg.png/ " target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} />  SVG.PNG</a>
-          <br/>
-
-          <a href="https://www.instagram.com/above_the_port/ " target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} />  above_the_port</a>
-          <br/>
+            <a href="https://github.com/tomjhinton" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} />  tomjhinton </a>
+            <br/>
 
 
+            <a href="https://www.instagram.com/svg.png/ " target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} />  SVG.PNG</a>
+            <br/>
 
-          <a href="mailto:tomjhinton@gmail.com"> <FontAwesomeIcon icon="at"/> </a> tomjhinton@gmail.com
+            <a href="https://www.instagram.com/above_the_port/ " target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} />  above_the_port</a>
+            <br/>
+
+
+
+            <a href="mailto:tomjhinton@gmail.com"> <FontAwesomeIcon icon="at"/> </a> tomjhinton@gmail.com
           </div>
 
         </div>
 
-        <div className='nav'>
-        ML Controlled Games Full Stack Sites Other
-        </div>
+
 
         <div>
-          <h2 className='section'>ML Controlled</h2>
+          <h2 className='section' id='ml'>ML Controlled</h2>
         </div>
 
 
@@ -503,7 +511,7 @@ class Main extends React.Component{
 
             <p className="desc">How often have you felt like your life lacks real time webcam based Cat detection? Problem solved.  Uses the tensorflow image detection and classification model coco-ssd and a users webcam to detect the presence of cats. </p>
             <a href="https://github.com/tomjhinton/catDetector" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
-                <a href="https://tomjhinton.github.io/catDetector/" target="_blank"><FontAwesomeIcon icon="link"/></a>
+            <a href="https://tomjhinton.github.io/catDetector/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
 
         </div>
@@ -514,15 +522,19 @@ class Main extends React.Component{
           <p className='name'>speakAndSpells</p>
           <div className='box'>
             <img src="assets/speak.png" />
-            hiya
+            <p className="desc">Navigate a block through a gap in an advancing wall by using your voice. The games simplistic but was mainly an excuse to make use of the speechCommands TensorFlow model. It works reasonably well though the failings do add a level of frustration that is quite amusing. You will find yourself angrily shouting at the screen at points. </p>
+                <a href="https://github.com/tomjhinton/speakAndSpells" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/speakAndSpells/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
         <div className='block8'>
-          <p className='name'>aleph</p>
+          <p className='name'>alephBounce</p>
           <div className='triangle'>
             <img src="assets/aleph.png" />
-            hiya
+            <p className="desc">I made it look like that on purpose! alephBounce is a motion controlled 3D game with a Tone.js soundtrack. It uses Posenet a ML trained real-time pose estimation model to track a players movements, by moving their arms they can move a block on the screen. They have to dodge an increasing number of bouncing balls. The animation and rendering are Three.js and the physics simulations are done by Cannon.js.</p>
+                <a href="https://github.com/tomjhinton/alephBounce" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/alephBounce/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
@@ -545,7 +557,7 @@ class Main extends React.Component{
         </div>
 
         <div className='block10'>
-          <p className='name'>nice</p>
+          <p className='name'>niceGuys</p>
           <div className='triangle'>
             <img src="assets/nice.png" />
             hiya
@@ -556,21 +568,25 @@ class Main extends React.Component{
           <p className='name'>MagToei</p>
           <div className='triangle'>
             <img src="assets/mag.png" />
-            hiya
+            <p className="desc">Recursive generative music using Magenta and the Tensorflow model drum_kit_rnn, it is initially using the first 14 notes of Twinkle Twinkle Little Star as an input but then feeds its own generation back into itself to create further patterns.</p>
+                <a href="https://github.com/tomjhinton/magToei" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/magToei/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
 
 
         <div>
-          <h2 className='section'>Games</h2>
+          <h2 className='section' id='games'>Games</h2>
         </div>
 
         <div className='block4'>
           <p className='name'>cyberBlobOfTheRings</p>
           <div className='triangle'>
             <img src="assets/cyberblob.png" />
-            <p className="desc">How often have you felt like your life lacks real time webcam based Cat detection? Problem solved.  Uses the tensorflow image detection and classification model coco-ssd and a users webcam to detect the presence of cats. </p>
+            <p className="desc">A 3D game built using Three.js.The game itself is simplistic, you have to navigate a blob through a series of rings using the mouse. Contains a basic generative soundtrack created with Tone.js</p>
+                <a href="https://github.com/tomjhinton/cyberbloboftherings" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/cyberbloboftherings/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
 
         </div>
@@ -579,7 +595,9 @@ class Main extends React.Component{
           <p className='name'>Freeside</p>
           <div className='box'>
             <img src="assets/freeside.png" />
-            hiya
+            <p className="desc">A 3D game built using Three.js and Cannon.js. Soundtrack is generated using Magenta and the Tensorflow model drum_kit_rnn. Mainly an experiment in utilising the Cannon.js physics engine. Essentially I guess a platform game as the player has to bounce a path along a series of moving platforms. </p>
+                <a href="https://github.com/tomjhinton/freeside" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/freeside/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
 
         </div>
@@ -588,16 +606,20 @@ class Main extends React.Component{
           <p className='name'>pastelDOA</p>
           <div className='triangle'>
             <img src="assets/pastel.png" />
-            hiya
+            <p className="desc">A canvas and React based game where the player has to keep inside a rotating rectangle. Direction controls refer to the original orientation of the rectangle so the player has to keep track of which way is up! Can also be controlled by touch on mobile devices.</p>
+                <a href="https://github.com/tomjhinton/pastelDOA" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/pastelDOA/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
 
         </div>
 
         <div className='block11'>
-          <p className='name'>Bounce</p>
+          <p className='name'>aleatoricBounce</p>
           <div className='box'>
             <img src="assets/bounce.png" />
-            hiya
+            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+              <a href="https://github.com/tomjhinton/aleatoricBounce" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+              <a href="https://tomjhinton.github.io/aleatoricBounce/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
@@ -605,7 +627,9 @@ class Main extends React.Component{
           <p className='name'>Increnfinity</p>
           <div className='box'>
             <img src="assets/Increnfinity.png" />
-            hiya
+            <p className="desc">A plotless infinite incremental game. The player picks the names of the resources to collect and the thing that produces them and then those resources increase by rates influenced by desicions made by the player. Inspired by Kittens Game and Universal Paperclips, styling has been kept to a bare minimum. Depending on your tastes these games are either highly addictive or unfathomably boring. </p>
+                <a href="https://github.com/tomjhinton/increnfinity" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+                <a href="https://tomjhinton.github.io/increnfinity/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
@@ -618,7 +642,7 @@ class Main extends React.Component{
         </div>
 
         <div>
-          <h2 className='section'>Full Stack Sites</h2>
+          <h2 className='section' id='fullS'>Full Stack Sites</h2>
         </div>
 
         <div className='block9'>
@@ -633,7 +657,11 @@ class Main extends React.Component{
           <p className='name'>EventUp</p>
           <div className='box'>
             <img src="assets/EventUp.png" />
-            hiya
+            <p className="desc">EventUp was a site that allowed promoters to upload details about their upcoming events. It also used Songkick’s API to provide information about events that had not been added by our users about the venues that the events would be held at. With this information we were able to use Mapbox to provide a map showing the location of the event on its page. I worked mainly on the form to allow people to add events to our database and on integrating the map.
+                </p>
+                <a href="https://github.com/tomjhinton/SEI-project03-fork" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+
+                <a href="https://gaeventup.herokuapp.com" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
@@ -645,7 +673,7 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <h2 className='section'>Other</h2>
+        <h2 className='section' id='other'>Other</h2>
 
         <div className='block9'>
           <p className='name'>Twitter Bots</p>
@@ -659,7 +687,10 @@ class Main extends React.Component{
           <p className='name'>movieBase</p>
           <div className='box'>
             <img src="assets/movieBase.png" />
-            hiya
+            <p className="desc"> .movieBase() was a site that allowed users to search for films and receive information about the film, an embedded video of its trailer and recommendations of similar films that they might also like. We used OMDB’s API to get initial information about a film that a user searched for and then fed that information into themoviedb’s API to find the URL of the film’s trailer and a selection of similar films. A user could then click on any of the similar films to receive the same information for that title. Within the project we pair coded on a single laptop so all aspects of the project were handled as part of a team.</p>
+                <a href="https://github.com/tomjhinton/SEI-Project02" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+
+                <a href="https://tomjhinton.github.io/SEI-Project02/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
         </div>
 
@@ -667,8 +698,14 @@ class Main extends React.Component{
           <p className='name'>Interactive Canvas Headers</p>
           <div className='box'>
             <img src="assets/canvas.png" />
-            hiya
+            <p className="desc"> Experiments with canvas animations that are interactive when hovered over.</p>
+
+                <div className="links">
+                  <a href="https://github.com/tomjhinton/reactCanvasInter" target="_blank"><IconGithub className="github"  width={'1em'} height={'1em'} /> </a>
+
+                  <a href="https://tomjhinton.github.io/reactCanvasInter/#/" target="_blank"><FontAwesomeIcon icon="link"/></a>
           </div>
+        </div>
         </div>
 
       </div>
@@ -676,6 +713,7 @@ class Main extends React.Component{
 
 
     )
+
   }
 }
 export default Main

@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
-import './style.scss'
+
 import 'bulma'
+import './style.scss'
 import Main from './components/Main'
+
 
 
 class App extends React.Component {
@@ -31,9 +33,12 @@ class App extends React.Component {
 
           </Switch>
 
+
         </main>
 
+
       </Router>
+
 
 
     )
