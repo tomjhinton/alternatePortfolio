@@ -183,11 +183,16 @@ text-decoration: underline;
   text-decoration: none;
   font-family: 'Passio';
   height:2vh;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,1);
+  color: white;
   align-items: center;
   justify-content: space-evenly;
+  a{
+    color: white;
+  }
 
 }
 a{
   text-decoration: none;
+
 }
