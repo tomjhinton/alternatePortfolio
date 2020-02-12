@@ -230,11 +230,13 @@ class Main extends React.Component{
     super()
     this.state = {
       data: {},
-      error: ''
-
+      error: '',
+      height: 9000,
+      width: 800
     }
     this.componentDidMount = this.componentDidMount.bind(this)
     this.tick = this.tick.bind(this);
+    this.drawPoints = this.drawPoints.bind(this);
 
 
 
@@ -244,8 +246,10 @@ class Main extends React.Component{
 
   componentDidMount(){
     this.tick()
-
-
+    console.log(window.document.body.offsetHeight)
+    console.log(window.document.body.offsetWidth)
+    this.setState({ height: window.document.body.offsetHeight-(document.documentElement.clientHeight/2) })
+    this.setState({ width: window.document.body.offsetWidth-20 })
     window.addEventListener('mousemove', this.onMouseMove.bind(this));
     this.drawPoints()
 
@@ -275,6 +279,8 @@ class Main extends React.Component{
 
 
   drawPoints(){
+    let height  = this.state.height
+    let width = this.state.width
     const canvas = document.getElementById('points')
     const ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -283,7 +289,7 @@ class Main extends React.Component{
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     const  FPS = 60
 
-    canvas.addEventListener('mousemove', function(evt) {
+    document.addEventListener('mousemove', function(evt) {
 
 
       mouse.x = evt.offsetX,
@@ -312,7 +318,7 @@ class Main extends React.Component{
 
     const  mouse2 = {
       x: 400,
-      y: 400,
+      y: 5000,
       vx: 0.6,
       vy: 0.6
     }
@@ -320,11 +326,11 @@ class Main extends React.Component{
 
     let points =  []
     points = []
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i < 800; i++) {
       points.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 1 + 1,
+        radius: Math.random() * 2 + 0.7,
         vx: Math.floor(Math.random() * 50) - 25,
         vy: Math.floor(Math.random() * 50) - 25
       })
@@ -361,28 +367,28 @@ class Main extends React.Component{
 
           for (var j = 0, y = points.length; j < y; j++) {
             var pointB = points[j]
-            if(distance(pointA, pointB) < 255) {
+            if(distance(pointA, pointB) < 455) {
 
               ctx.lineTo(pointB.x,pointB.y)
             }
           }
         }
 
-        if(distance(mouse2, pointA) < 250){
-
-          ctx.lineTo(mouse2.x, mouse2.y)
-
-
-
-          for (var k = 0, v = points.length; k < v; k++) {
-            var pointC = points[k]
-            if(distance(pointA, pointC) < 255) {
-
-              ctx.lineTo(pointC.x,pointC.y)
-
-            }
-          }
-        }
+        // if(distance(mouse2, pointA) < 450){
+        //
+        //   ctx.lineTo(mouse2.x, mouse2.y)
+        //
+        //
+        //
+        //   for (var k = 0, v = points.length; k < v; k++) {
+        //     var pointC = points[k]
+        //     if(distance(pointA, pointC) < 455) {
+        //
+        //       ctx.lineTo(pointC.x,pointC.y)
+        //
+        //     }
+        //   }
+        // }
       }
       ctx.lineWidth = 0.55
       ctx.strokeStyle = 'rgba(74,246,38,0.9)'
@@ -410,8 +416,8 @@ class Main extends React.Component{
         s.x += s.vx / FPS
         s.y += s.vy / FPS
 
-        if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx
-        if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy
+        if (s.x < 0 || s.x > width) s.vx = -s.vx
+        if (s.y < 0 || s.y > height) s.vy = -s.vy
       }
     }
     function tick() {
@@ -419,15 +425,15 @@ class Main extends React.Component{
       ctx.globalAlpha = 1
       ctx.fillStyle = 'rgba(0,0,0,0)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      mouse.x+=mouse.vx
-      mouse.y+= mouse.vy
+      // mouse.x+=mouse.vx
+      // mouse.y+= mouse.vy
       if (mouse.x < 0 || mouse.x > canvas.width) mouse.vx = -mouse.vx
       if (mouse.y < 0 || mouse.y > canvas.height) mouse.vy = -mouse.vy
 
-      mouse2.x+=mouse2.vx
-      mouse2.y+= mouse2.vy
-      if (mouse2.x < 0 || mouse2.x > canvas.width) mouse2.vx = -mouse2.vx
-      if (mouse2.y < 0 || mouse2.y > canvas.height) mouse2.vy = -mouse2.vy
+      // mouse2.x+=mouse2.vx
+      // mouse2.y+= mouse2.vy
+      // if (mouse2.x < 0 || mouse2.x > canvas.width) mouse2.vx = -mouse2.vx
+      // if (mouse2.y < 0 || mouse2.y > canvas.height) mouse2.vy = -mouse2.vy
 
       update()
       drawPointsDots()
@@ -449,7 +455,7 @@ class Main extends React.Component{
       <div className='main '>
 
 
-        <canvas id="points" width={900} height={1960}>  </canvas>
+        <canvas id="points" width={window.document.body.offsetWidth} height={10950}>  </canvas>
 
 
         <div className='nav navbar is-fixed-bottom'>
@@ -457,16 +463,16 @@ class Main extends React.Component{
         <a href='#ml'>ML Controlled</a>  <a href='#games'>Games</a> <a  href='#fullS'>Full Stack Sites</a> <a href='#other'>Other</a>
         </div>
 
-        <div className='block1'>
+        <div className='block21'>
           <p className='name'  id='about'>About Me</p>
-          <div className='box'>
+          <div className='circle'>
 
             Creative Coder and full-stack developer.
           </div>
 
         </div>
 
-        <div className='block2'>
+        <div className='block20'>
           <p className='name' id='contact'>Contact</p>
           <div className='triangle'>
             <p>
@@ -502,9 +508,9 @@ class Main extends React.Component{
         </div>
 
 
-        <div className='block3'>
+        <div className='block19'>
           <p className='name'>Cat Detector</p>
-          <div className='box'>
+          <div className='circle'>
 
             <img src="assets/cat.png" />
 
@@ -522,9 +528,9 @@ class Main extends React.Component{
 
 
 
-        <div className='block7'>
+        <div className='block18'>
           <p className='name'>speakAndSpells</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/speak.png" />
             <p className="desc">Navigate a block through a gap in an advancing wall by using your voice. The games simplistic but was mainly an excuse to make use of the speechCommands TensorFlow model. It works reasonably well though the failings do add a level of frustration that is quite amusing. You will find yourself angrily shouting at the screen at points. </p>
             <div className='links'>
@@ -534,11 +540,11 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block8'>
+        <div className='block17'>
           <p className='name'>alephBounce</p>
-          <div className='triangle'>
+          <div className='circle'>
             <img src="assets/aleph.png" />
-            <p className="desc">I made it look like that on purpose! alephBounce is a motion controlled 3D game with a Tone.js soundtrack. It uses Posenet a ML trained real-time pose estimation model to track a players movements, by moving their arms they can move a block on the screen. They have to dodge an increasing number of bouncing balls. The animation and rendering are Three.js and the physics simulations are done by Cannon.js.</p>
+            <p className="desc">I made it look like that on purpose. alephBounce is a motion controlled 3D game with a Tone.js soundtrack. It uses Posenet a ML trained real-time pose estimation model to track a players movements, by moving their arms they can move a block on the screen. They have to dodge an increasing number of bouncing balls. The animation and rendering are Three.js and the physics simulations are done by Cannon.js.</p>
             <div className='links'>
                 <a href="https://github.com/tomjhinton/alephBounce" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
                 <a href="https://tomjhinton.github.io/alephBounce/" target="_blank"><FontAwesomeIcon icon="link"/></a>
@@ -548,23 +554,23 @@ class Main extends React.Component{
 
 
 
-        <div className='block10'>
+        <div className='block16'>
           <p className='name'>EBM</p>
           <div className='triangle'>
             <img src="assets/ebm.png" />
-            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+            <p className="desc"> </p>
             <div className='links'>
-              <a href="https://github.com/tomjhinton/ebm" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
+              <a href="https://github.com/tomjhinton/ebm" target="_blank">A movement controlled instrument using Posenet to track a users arm positions and Tone.js to trigger drum samples and synth sounds. <IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
               <a href="https://tomjhinton.github.io/ebm/" target="_blank"><FontAwesomeIcon icon="link"/></a>
               </div>
           </div>
         </div>
 
-        <div className='block10'>
+        <div className='block15'>
           <p className='name'>emokinesis</p>
-          <div className='triangle'>
+          <div className='circle'>
             <img src="assets/emo.png" />
-            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+            <p className="desc"> A Cannon.js physics based instrument that uses face.api to detect facial expressions to manipulate a Three.js scene that has spheres that trigger drum samples on their impact  with the  ground. </p>
             <div className='links'>
               <a href="https://github.com/tomjhinton/emokinesis" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
               <a href="https://tomjhinton.github.io/emokinesis/" target="_blank"><FontAwesomeIcon icon="link"/></a>
@@ -572,11 +578,11 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block10'>
+        <div className='block14'>
           <p className='name'>niceGuys</p>
           <div className='triangle'>
             <img src="assets/nice.png" />
-            <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
+            <p className="desc"> An experimental game that uses a tensorflow Text Toxicity classifier as {"it's"} means of control. Scene rendered with Three.js and  uses Cannon.js for the physics. </p>
             <div className='links'>
               <a href="https://github.com/tomjhinton/niceGuys" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
               <a href="https://tomjhinton.github.io/niceGuys/" target="_blank"><FontAwesomeIcon icon="link"/></a>
@@ -584,9 +590,9 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block10'>
+        <div className='block13'>
           <p className='name'>MagToei</p>
-          <div className='triangle'>
+          <div className='circle'>
             <img src="assets/mag.png" />
             <p className="desc">Recursive generative music using Magenta and the Tensorflow model drum_kit_rnn, it is initially using the first 14 notes of Twinkle Twinkle Little Star as an input but then feeds its own generation back into itself to create further patterns.</p>
             <div className='links'>
@@ -602,7 +608,7 @@ class Main extends React.Component{
           <h2 className='section' id='games'>Games</h2>
         </div>
 
-        <div className='block4'>
+        <div className='block12'>
           <p className='name'>cyberBlobOfTheRings</p>
           <div className='triangle'>
             <img src="assets/cyberblob.png" />
@@ -615,9 +621,9 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block5'>
+        <div className='block11'>
           <p className='name'>Freeside</p>
-          <div className='box'>
+          <div className='circle'>
             <img src="assets/freeside.png" />
             <p className="desc">A 3D game built using Three.js and Cannon.js. Soundtrack is generated using Magenta and the Tensorflow model drum_kit_rnn. Mainly an experiment in utilising the Cannon.js physics engine. Essentially I guess a platform game as the player has to bounce a path along a series of moving platforms. </p>
             <div className='links'>
@@ -628,7 +634,7 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block6'>
+        <div className='block10'>
           <p className='name'>pastelDOA</p>
           <div className='triangle'>
             <img src="assets/pastel.png" />
@@ -641,9 +647,9 @@ class Main extends React.Component{
 
         </div>
 
-        <div className='block11'>
+        <div className='block9'>
           <p className='name'>aleatoricBounce</p>
-          <div className='box'>
+          <div className='circle'>
             <img src="assets/bounce.png" />
             <p className="desc"> Loosely gamified aleatoric computer music. There is a white square and some balls bouncing around. You control a rectangle, if you get it in the square you gain some lives, if a ball gets in the square, you lose a life and an extra ball is added. As the balls bounce they trigger Tone.js synthesised sounds. Part game, part composition, part web-site. </p>
             <div className='links'>
@@ -653,9 +659,9 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block9'>
+        <div className='block8'>
           <p className='name'>Increnfinity</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/Increnfinity.png" />
             <p className="desc">A plotless infinite incremental game. The player picks the names of the resources to collect and the thing that produces them and then those resources increase by rates influenced by desicions made by the player. Inspired by Kittens Game and Universal Paperclips, styling has been kept to a bare minimum. Depending on your tastes these games are either highly addictive or unfathomably boring. </p>
             <div className='links'>
@@ -665,9 +671,9 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block9'>
+        <div className='block7'>
           <p className='name'>Tetris</p>
-          <div className='box'>
+          <div className='circle'>
             <img src="assets/tetris.png" />
             <p className="desc"> A solo project built over a one week timeframe, the brief for this project was to build a game from a set-list utilising HTML, CSS and JavaScript.</p>
 
@@ -683,11 +689,11 @@ class Main extends React.Component{
           <h2 className='section' id='fullS'>Full Stack Sites</h2>
         </div>
 
-        <div className='block9'>
+        <div className='block6'>
           <p className='name'>Neurot467</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/neurot.png" />
-            <p className="desc">EventUp was a site that allowed promoters to upload details about their upcoming events. It also used Songkick’s API to provide information about events that had not been added by our users about the venues that the events would be held at. With this information we were able to use Mapbox to provide a map showing the location of the event on its page. I worked mainly on the form to allow people to add events to our database and on integrating the map.
+            <p className="desc">Generative art piece with python backend and a React front-end. Image creation is  done server-side using Pillow and the resuslts are saved to a SQL server in base64.  New images are created hourly and the site resets twice a day.
                 </p>
                 <div className='links'>
                 <a href="https://github.com/tomjhinton/fold" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
@@ -697,11 +703,11 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block9'>
+        <div className='block5'>
           <p className='name'>EventUp</p>
-          <div className='box'>
+          <div className='circle'>
             <img src="assets/EventUp.png" />
-            <p className="desc">EventUp was a site that allowed promoters to upload details about their upcoming events. It also used Songkick’s API to provide information about events that had not been added by our users about the venues that the events would be held at. With this information we were able to use Mapbox to provide a map showing the location of the event on its page. I worked mainly on the form to allow people to add events to our database and on integrating the map.
+            <p className="desc">EventUp was a site that allowed promoters to upload details about their upcoming events. It also used Songkick’s API to provide information about events that had not been added by our users about the venues that the events would be held at. With this information we were able to use Mapcircle to provide a map showing the location of the event on its page. I worked mainly on the form to allow people to add events to our database and on integrating the map.
                 </p>
                 <div className='links'>
                 <a href="https://github.com/tomjhinton/SEI-project03-fork" target="_blank"><IconGithub className="github"  width={'1.2em'} height={'1.2em'} /> </a>
@@ -711,9 +717,9 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block9'>
+        <div className='block4'>
           <p className='name'>Epiphyte</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/epiphyte.png" />
             hiya
           </div>
@@ -721,17 +727,17 @@ class Main extends React.Component{
 
         <h2 className='section' id='other'>Other</h2>
 
-        <div className='block9'>
+        <div className='block3'>
           <p className='name'>Twitter Bots</p>
-          <div className='box'>
+          <div className='circle'>
             <img src="assets/tetris.png" />
             hiya
           </div>
         </div>
 
-        <div className='block9'>
+        <div className='block2'>
           <p className='name'>movieBase</p>
-          <div className='box'>
+          <div className='triangle'>
             <img src="assets/movieBase.png" />
             <p className="desc"> .movieBase() was a site that allowed users to search for films and receive information about the film, an embedded video of its trailer and recommendations of similar films that they might also like. We used OMDB’s API to get initial information about a film that a user searched for and then fed that information into themoviedb’s API to find the URL of the film’s trailer and a selection of similar films. A user could then click on any of the similar films to receive the same information for that title. Within the project we pair coded on a single laptop so all aspects of the project were handled as part of a team.</p>
             <div className='links'>
@@ -742,9 +748,9 @@ class Main extends React.Component{
           </div>
         </div>
 
-        <div className='block9'>
+        <div className='block1'>
           <p className='name'>Interactive Canvas Headers</p>
-          <div className='box'>
+          <div className='circle'>
             <img src="assets/canvas.png" />
             <p className="desc"> Experiments with canvas animations that are interactive when hovered over.</p>
 

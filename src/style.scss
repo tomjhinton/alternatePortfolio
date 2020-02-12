@@ -7,7 +7,7 @@
 *{
   font-weight:bold;
 }
-@mixin box {
+@mixin circle {
 
   transition: all 2000ms ease;
   min-height: 45vh;
@@ -39,7 +39,7 @@
 
 $base-color: #036;
 
-@for $i from 1 through 16 {
+@for $i from 1 through 21 {
 
   .block#{$i} {
     width: 40vw;
@@ -48,6 +48,7 @@ $base-color: #036;
     justify-content: center;
     margin-bottom: 250px;
     margin-left:  random(70) + vh;
+    z-index: #{$i};
     }
 }
 
@@ -74,9 +75,9 @@ $base-color: #036;
 }
 
 
-.box{
+.circle{
 
-  @include box
+  @include circle
 
   figure.image{
 
@@ -98,10 +99,8 @@ img{
 
 #points{
   width: 100%;
-  height:800%;
   z-index: -2;
   position:absolute;
-  top:100vh;
 
 }
 
@@ -157,8 +156,8 @@ img{
   font-family: 'Passio';
   font-weight:bold;
   color: black;
-  font-size: 3em;
-text-decoration: underline;
+  font-size: 4em;
+  text-decoration: underline;
   margin-bottom: 2px;
   z-index: 3;
   margin-left: 45vw;
