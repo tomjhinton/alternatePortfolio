@@ -47,7 +47,8 @@ $base-color: #036;
     align-items: center;
     justify-content: center;
     margin-bottom: 250px;
-    margin-left:  random(70) + vh;
+    margin-left:  random(50) + vw;
+    margin-right:   20vw;
     z-index: #{$i};
     }
 }
@@ -94,7 +95,9 @@ img{
 }
 
 
-
+.about{
+  font-size: 2em;
+}
 
 
 #points{
